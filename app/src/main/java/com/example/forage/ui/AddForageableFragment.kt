@@ -74,6 +74,10 @@ class AddForageableFragment : Fragment() {
 
             // TODO: Observe a Forageable that is retrieved by id, set the forageable variable,
             //  and call the bindForageable method
+            viewModel.getForageableById(id).observe(viewLifecycleOwner) {
+                forageable = it
+                bindForageable(it)
+            }
 
             binding.deleteBtn.visibility = View.VISIBLE
             binding.deleteBtn.setOnClickListener {
